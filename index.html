@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Coders</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.main-box{background:white; width:90%; max-width:400px; margin:50px auto; padding:20px; border-radius:10px; text-align:center;}
+input{padding:12px; width:80%;}
+button{padding:12px 25px; margin-top:15px; background:red; color:white; border:none; font-size:16px;}
+#result{margin-top:20px; font-size:22px; color:green; font-weight:bold;}
+</style>
 </head>
 <body>
-    <script src="first.js" defer></script>
+<h1 style="text-align:center;">Welcome to Mind Coders!</h1>
+
+<div class="main-box">
+<h2>Apna Naam Likho</h2>
+<input type="text" id="myName" placeholder="Yahan naam likho">
+<br>
+<button onclick="showName()">SUBMIT</button>
+<h2 id="result"></h2>
+</div>
+
+<script>
+function showName(){
+  let n = document.getElementById("myName").value;
+  if(n==""){ alert("Naam to likh bhai!"); }
+  else{ document.getElementById("result").innerHTML = "Hello, "+n+"! Welcome to Mind Coders."; }
+}
+</script>
+
 </body>
 </html>
