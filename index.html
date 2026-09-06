@@ -3,73 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind Coders</title>
+<title>MIND CODERS</title>
 <style>
 *{margin:0; padding:0; box-sizing:border-box;}
 body{font-family:Arial; background:#80cbc4;}
-.header{background:#80cbc4; padding:8px 15px; text-align:right; color:#e74c3c; font-weight:bold;}
+.header{color:#ff4d4d; text-align:right; padding:6px 20px; font-size:14px;}
 .container{display:flex;}
-.left{width:45%; background:#80cbc4; padding:15px; font-size:13px;}
-.right{width:55%; background:#001a33;}
-.right img{width:100%; height:100vh; object-fit:cover;}
-#welcomeBox{text-align:center; margin-top:25px;}
-#result{margin:10px 0; font-size:14px; color:black;}
-input[type="text"]{padding:6px; width:160px;}
-button{padding:6px 15px; cursor:pointer;}
-button:disabled{background:grey; cursor:not-allowed;}
-.terms{font-size:12px; margin:10px 0;}
-.terms a{color:blue;}
+.left{width:38%; background:#80cbc4; padding:12px; font-size:11px; line-height:14px;}
+.right{width:62%;}
+.right img{width:100%; height:100vh; object-fit:fill; display:block;}
+.center{text-align:center; margin-top:20px;}
+#welcome{color:#ff4d4d; font-size:12px;}
+#result{font-size:11px; margin:6px 0; font-weight:bold;}
+button{padding:4px 12px; font-size:11px;}
+button:disabled{background:gray; color:white;}
+a{color:blue;}
+@media(max-width:700px){.container{flex-direction:column;} .left,.right{width:100%;} .right img{height:350px;}}
 </style>
 </head>
 <body>
 <div class="header">MIND CODERS</div>
-
 <div class="container">
 <div class="left">
-<p><b>Indore, Madhya Pradesh</b></p>
-<p style="margin-top:8px;">Welcome to our website. We are helping to create amazing web experiences & skills also providing knowledge training.</p>
+Indore, Madhya Pradesh<br><br>
+Welcome to our website. We are helping to create amazing web experiences & skills also providing knowledge training and support to build a better website.<br><br>
+<b>We are providing training Languages:</b><br>
+You can choose the languages to learn:<br>
+- Java<br>- Python<br>- C++<br>- JavaScript<br>- HTML<br>- CSS<br>- PHP<br>- React.js<br>- Node.js<br><br>
+<b>Jobs Opportunities</b><br>
+- Frontend Developer<br>- Backend Developer<br>- Full Stack Developer<br><br>
+We are providing the jobs opportunities to the students and also providing the highest package and very good position.<br><br>
 
-<h4 style="margin-top:15px;">We are providing training Languages:</h4>
-<p>You can choose the languages to learn:</p>
-<ul style="margin-left:20px; margin-top:5px;">
-<li>Java</li><li>Python</li><li>C / C++</li><li>JavaScript</li><li>HTML / CSS</li><li>PHP</li><li>React.js</li><li>Node.js</li>
-</ul>
-
-<h4 style="margin-top:15px;">Jobs Opportunities</h4>
-<ul style="margin-left:20px;"><li>Frontend Developer</li><li>Backend Developer</li><li>Full Stack Developer</li></ul>
-
-<div id="welcomeBox">
-<p style="color:#e74c3c;">Welcome to Mind Coders!</p>
+<div class="center">
+<p id="welcome">Welcome to Mind Coders!</p>
 <p id="result">Hello, null! Welcome to Mind Coders.</p>
 
-<input type="text" id="myName" placeholder="Enter your name">
+<input type="text" id="nameInput" placeholder="Enter your name" style="padding:3px; font-size:11px;"><br><br>
 
-<div class="terms">
-<input type="checkbox" id="agree"> I agree to <a href="https://www.google.com" target="_blank">Terms & Conditions</a> and <a href="https://www.google.com" target="_blank">Privacy Policy</a>
-</div>
+<input type="checkbox" id="agree"> I agree to <a href="https://www.google.com" target="_blank">Terms</a> and <a href="https://www.google.com" target="_blank">Privacy Policy</a><br><br>
 
-<button id="submitBtn" onclick="showName()" disabled>Submit</button>
+<button id="submitBtn" disabled>Submit</button>
 </div>
 </div>
 
 <div class="right">
-<img src="https://img.freepik.com/premium-photo/global-network-connection_1128796-12482.jpg" alt="Globe">
+<img src="final_globe_hd.jpg" alt="Mind Coders Globe">
 </div>
 </div>
 
 <script>
-// Jab tak checkbox tick nahi hoga, button ON nahi hoga
+// 1. Website load hote hi naam puchna
+window.onload = function(){
+  let firstName = prompt("Enter your name:");
+  if(firstName){
+    document.getElementById("result").innerText = "Hello, " + firstName + "! Welcome to Mind Coders.";
+    document.getElementById("nameInput").value = firstName;
+  }
+};
+
+// 2. Checkbox tick hoga tabhi button ON
 document.getElementById("agree").addEventListener("change", function(){
   document.getElementById("submitBtn").disabled = !this.checked;
 });
 
-function showName(){
-  let n = document.getElementById("myName").value;
-  if(n.trim() == ""){ alert("Please Enter Your Name"); }
-  else{
-    document.getElementById("result").innerHTML = "Hello, "+n+"! Welcome to Mind Coders.";
+// 3. Submit par naam print + Google new tab me open
+document.getElementById("submitBtn").addEventListener("click", function(){
+  let n = document.getElementById("nameInput").value;
+  if(n.trim() == ""){
+    alert("Please enter your name first!");
+    return;
   }
-}
+  document.getElementById("result").innerText = "Hello, " + n + "! Welcome to Mind Coders.";
+  // Google new tab me khulega
+  window.open("https://www.google.com", "_blank");
+});
 </script>
 </body>
 </html>
