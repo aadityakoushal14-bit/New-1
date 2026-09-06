@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind Coders</title>
-<link rel="stylesheet" href="style.css">
+<title>Mind Coders - Indore</title>
 <style>
-.main-box{background:white; width:90%; max-width:400px; margin:50px auto; padding:20px; border-radius:10px; text-align:center;}
-input{padding:12px; width:80%;}
-button{padding:12px 25px; margin-top:15px; background:red; color:white; border:none; font-size:16px;}
-#result{margin-top:20px; font-size:22px; color:green; font-weight:bold;}
+body{font-family:Arial; background:#6daaaa; margin:0; padding:20px;}
+h1{color:#000;}
+.box{display:flex; justify-content:space-between;}
+.left{width:50%;}
+.right img{width:400px; border-radius:10px;}
+ul{line-height:25px;}
+h2{margin-top:40px;}
 </style>
 </head>
 <body>
-<h1 style="text-align:center;">Welcome to Mind Coders!</h1>
 
-<div class="main-box">
-<h2>Apna Naam Likho</h2>
-<input type="text" id="myName" placeholder="Yahan naam likho">
-<br>
-<button onclick="showName()">SUBMIT</button>
-<h2 id="result"></h2>
+<h1>Mind Coders - Indore, Madhya Pradesh</h1>
+<p>Learn coding in easy way & get placed in top MNCs with our training.</p>
+
+<div class="box">
+<div class="left">
+<h3>We are providing leading Languages. You can choose the language to learn:</h3>
+<ul>
+<li>Java</li>
+<li>Python</li>
+<li>JavaScript</li>
+<li>C / C++</li>
+<li>HTML / CSS</li>
+<li>PHP</li>
+<li>React.js</li>
+<li>Node.js</li>
+</ul>
+
+<h2>Jobs Opportunities</h2>
+<ul>
+<li>Frontend Developer</li>
+<li>Backend Developer</li>
+<li>Full Stack Developer</li>
+</ul>
+
+<h2 id="welcome" style="color:darkred;"></h2>
+
+</div>
+
+<div class="right">
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500" alt="Tech Image">
+</div>
 </div>
 
 <script>
-function showName(){
-  let n = document.getElementById("myName").value;
-  if(n==""){ alert("Naam to likh bhai!"); }
-  else{ document.getElementById("result").innerHTML = "Hello, "+n+"! Welcome to Mind Coders."; }
+// Ye wahi popup hai jo tumhari photo me aa raha hai
+let userName = prompt("Enter your name:");
+if(userName){
+  document.getElementById("welcome").innerHTML = "Hello, " + userName + "! Welcome to Mind Coders.";
 }
 </script>
 
